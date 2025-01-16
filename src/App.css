@@ -1,0 +1,27 @@
+.scroll-container{
+    scrollbar-gutter: stable;
+}
+
+.scroll-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background: #f5f5f5;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+
+    background-color: #ccc;
+    border-radius: 4px;
+    border: 1px solid #fff;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;
+}
+
+.scroll-container {
+    scrollbar-color: #ccc #f5f5f5;
+    scrollbar-width: thin;
+}
