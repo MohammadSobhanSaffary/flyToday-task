@@ -35,6 +35,7 @@ function reducer(state, action) {
 interface State {
     count: number;
     fiboArray: number[];
+    activeIndex:number;
 }
 
 function App() {
