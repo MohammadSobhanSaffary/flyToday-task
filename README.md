@@ -1,50 +1,75 @@
-# React + TypeScript + Vite
+readme_content = """\
+# پروژهٔ طراحی و توسعهٔ وبسایت شرکت **جهان گسترش** (WordPress)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+این مخزن حاوی مستندات فنی و زمان‌بندی پروژهٔ وبسایت سه‌زبانهٔ شرکت جهان گسترش است. در این README خلاصهٔ فازها، تحویل‌ها و برآورد نفر‑ساعت تیم ارائه شده است.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📋 فازها و تحویل‌ها
 
-## Expanding the ESLint configuration
+| فاز | بازهٔ زمانی | خروجی‌ها (Deliverables) | مهم‌ترین فعالیت‌های خرد |
+| --- | --- | --- | --- |
+| ۰. **آغاز پروژه** | روز 1‑2 | صورت‌جلسهٔ Kick‑off، محیط استیجینگ و مخزن Git | جلسهٔ هماهنگی و تأیید محدوده<br>ایجاد پروژه در **Jira** و تعریف اسپرینت‌ها<br>تدارک سرور **LiteSpeed** و **SSL** آزمایشی |
+| ۱. **طراحی UI/UX** | هفتهٔ 1 (روز 3‑7) | وایرفریم همهٔ صفحات کلیدی، ماکاپ **Figma** تأیید‑شده | گردآوری برندبوک و دارایی‌های بصری<br>طراحی وایرفریم برای **Home, About, Products, Services, News, Contact**<br>بازنگری مشترک و تثبیت نسخهٔ نهایی |
+| ۲. **توسعهٔ وردپرس** | هفته‌های 2‑4 (روز 8‑28) | قالب فرزند **Astra + Elementor Pro**، ساختار DB و CPTها، تنظیم چندزبانگی **WPML** | **هفتهٔ 2**: نصب WP و Child Theme، تنظیم WPML و منوی سه‌زبانه<br>**هفتهٔ 3**: قالب‌های صفحهٔ اصلی، درباره‌ما و محصولات؛ ایجاد CPTهای *Products, News, Events*<br>**هفتهٔ 4**: صفحهٔ Services و Contact، **Gravity Forms + reCAPTCHA**، **LiteSpeed Cache**، CDN، Wordfence |
+| ۳. **بارگذاری محتوا** | هفتهٔ 5 (روز 29‑35) | محتوای متنی/تصویری/ویدیویی سه‌زبانه، اسلاگ‌ها و متادیتاهای سئو | ورود محتوای فارسی ↔ ترجمهٔ EN/AR در WPML<br>بهینه‌سازی تصاویر **WebP** و ویدیوها (Bunny Stream)<br>تکمیل Alt Text، Schema و پیوندهای داخلی |
+| ۴. **QA و بهینه‌سازی** | هفتهٔ 6 (روز 36‑42) | گزارش تست جامع، امتیاز **Lighthouse ≥ 90** | تست واکنش‌گرا روی +15 دستگاه/مرورگر<br>رفع خطاهای **WCAG AA**<br>اسکن امنیتی و ترمیم آسیب‌پذیری‌ها<br>بازبینی محتوایی و چک لینک‌ها |
+| ۵. **آموزش و لانچ** | روز 43‑44 | جلسهٔ آموزشی 2 ساعته + PDF راهنما، وبسایت روی دامنهٔ اصلی | آموزش مدیریت محتوا و بک‌آپ<br>انتقال از استیجینگ به پروداکشن، تغییر DNS<br>Smoke Test پس از انتشار |
+| ۶. **پشتیبانی پس از راه‌اندازی** | ماه 2 تا 12 | گزارش ماهانهٔ Analytics، آپدیت هسته/افزونه‌ها | به‌روزرسانی هفتگی WP و پلاگین‌ها<br>پایش Uptime و Firewall<br>بک‌آپ روزانه در فضای ابری |
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## ⏱️ تخمین نفر‑ساعت
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+| فاز | بازهٔ زمانی | نفر‑ساعت کل | تفکیک نقش‌ها |
+| --- | --- | --- | --- |
+| آغاز پروژه و آماده‌سازی | روز 1‑2 | **16h** | PM 8h، DevOps 8h |
+| طراحی UI/UX | هفتهٔ 1 | **52h** | UI/UX 40h، PM 8h، Dev 4h |
+| توسعهٔ وردپرس (۳ اسپرینت) | هفتهٔ 2‑4 | **272h** | Dev‑1 120h، Dev‑2 120h، PM 24h، UI/UX 8h |
+| بارگذاری محتوا و سئوی اولیه | هفتهٔ 5 | **56h** | SEO/Content 40h، Dev 8h، PM 8h |
+| QA و بهینه‌سازی نهایی | هفتهٔ 6 | **72h** | QA 40h، Dev 24h، PM 8h |
+| آموزش و لانچ | روز 43‑44 | **16h** | Dev 8h، PM/Trainer 8h |
+| **جمع پروژه (۶ هفته)** | — | **≈ 484h** | — |
+| پشتیبانی ۱۲ ماهه | پس از لانچ | **120h** *(میانگین 10h/ماه)* | Dev/DevOps 6h، PM 4h در ماه |
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 👥 تیم پروژه
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **PM** – مدیر پروژه و رابط با کارفرما  
+- **UI/UX Designer** – طراحی تجربه و رابط کاربری (Figma)  
+- **WordPress Developers (2x)** – توسعهٔ Front‑End / Back‑End  
+- **SEO & Content Specialist** – بهینه‌سازی محتوا و متادیتا  
+- **QA Engineer** – تست عملکرد، دسترس‌پذیری و امنیت  
+
+---
+
+## ⚙️ فناوری‌ها و ابزارها
+
+- **WordPress 6.x**, قالب **Astra** + **Elementor Pro**  
+- **WPML** برای چندزبانه‌سازی  
+- **LiteSpeed Cache**، **BunnyCDN**, **WebP**  
+- **Gravity Forms** + **Google reCAPTCHA v3**  
+- مانیتورینگ با **Wordfence**, **UptimeRobot**, **Google Analytics 4**  
+
+---
+
+## 📆 روش مدیریت پروژه
+
+- چارچوب **Agile/Scrum** با اسپرینت‌های ۱ هفته‌ای  
+- ابزار مدیریت تسک‌ها: **Jira**  
+- انتشار نسخهٔ استیجینگ در پایان هر اسپرینت  
+- گزارش پیشرفت هفتگی + کانال واتساپ اختصاصی  
+
+---
+
+## ✉️ تماس
+
+در صورت پرسش درباره‌ی این مستند یا نیاز به تغییر زمان‌بندی، لطفاً با مدیر پروژه تماس بگیرید.
+"""
+
+file_path = "/mnt/data/README_Project_Plan.md"
+with open(file_path, "w", encoding="utf-8") as f:
+    f.write(readme_content)
+
+file_path
